@@ -23,12 +23,12 @@ function sortAllRows() {
 function display_scoreboard(scoreboard){
   $("#teams").empty();
   $.each(scoreboard, function(index, team){
-    addTeamView(team.id, team.name, team.score, index);
+    addTeamView(team.id, team.name, team.score);
   });
   sortAllRows();
 }
 
-function addTeamView(id, name, score, index){
+function addTeamView(id, name, score){
   var team_template = $(`<div class="row" data-id="${id}"></div>`);
   var name_template = $("<div class = col-md-5></div>");
   var score_template = $("<div class = col-md-2></div>");
