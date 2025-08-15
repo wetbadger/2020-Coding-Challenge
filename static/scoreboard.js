@@ -79,7 +79,10 @@ function increase_score(id){
       sortRow(teamRow);
     },
     error: function(request, status, error){
-      console.error("Error increasing score:", error);
+        console.log("Error");
+        console.log(request);
+        console.log(status);
+        console.log(error);
     }
   });
 }
