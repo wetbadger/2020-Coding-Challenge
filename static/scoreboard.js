@@ -1,10 +1,18 @@
 function sortRow(row) {
-  var currentScore = parseInt(row.find('.col-md-2:first').text());
-  var $higherRows = $('.row').not(row).filter(function() {
-    return parseInt($(this).find('.col-md-2:first').text()) <= currentScore;
+  var currentScore = parseInt(row.find(".col-md-2:first").text());
+  var $allRows = $(".row").not(row);
+  var $targetRow = null;
+
+  $allRows.each(function() {
+    var rowScore = parseInt($(this).find(".col-md-2:first").text());
+    if (rowScore <= currentScore) {
+      $targetRow = $(this);
+      return false;
+    }
   });
-  if ($higherRows.length > 0) {
-    row.insertBefore($higherRows.first());
+
+  if ($targetRow) {
+    row.insertBefore($targetRow);
   }
 }
 
